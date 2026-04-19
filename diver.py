@@ -1008,9 +1008,8 @@ class DivergentUniverse(UniverseUtils):
                         if len(total_events) and total_events[0][0] < 1600:
                             # 有时候会锁定到右边的状态效果那个字
                             break
-                        else:
-                            keyops.keyDown('w')
-                            time.sleep(1)
+                        keyops.keyDown('w')
+                    time.sleep(1)
 
                 keyops.keyUp('w')
                 if total_events is None:
