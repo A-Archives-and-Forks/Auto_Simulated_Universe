@@ -97,6 +97,12 @@ jobs:
           AutoSimulatedUniverse_${{ github.ref_name }}_cpu.zip
         prerelease: true
 
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: AutoSimulatedUniverse
+        path: AutoSimulatedUniverse
+
     - name: Trigger MirrorChyanUploading
       if: startsWith(github.ref, 'refs/tags/')
       shell: bash
@@ -105,9 +111,3 @@ jobs:
         gh workflow run --repo $GITHUB_REPOSITORY mirrorchyan_release_note
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Upload artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: AutoSimulatedUniverse
-        path: AutoSimulatedUniverse
